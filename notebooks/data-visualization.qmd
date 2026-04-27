@@ -13,6 +13,8 @@ library(dplyr)
 library(tidyr)
 library(forcats)   ### tools for working with factors (e.g., reordering)
 library(janitor)   ### clean column names
+library(DT)
+library(leaflet)
 
 ### Visualization
 library(ggplot2)
@@ -138,3 +140,13 @@ facet_plot
 ggplotly(facet_plot, tooltip = c('x', 'y'))
 ```
 
+## Show an interactive table 
+
+```{r}
+DT::datatable(
+  daily_visits_loc,
+  caption  = "Daily visitor counts at Delta restoration sites",
+  colnames = c("Location", "Date", "Visitor type", "Daily visits"),
+  options  = list(pageLength = 10)
+)
+```
